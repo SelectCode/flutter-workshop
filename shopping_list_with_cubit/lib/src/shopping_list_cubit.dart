@@ -5,9 +5,18 @@ import 'package:shopping_list_with_cubit/src/models/shopping_list.dart';
 part 'shopping_list_state.dart';
 
 class ShoppingListCubit extends Cubit<ShoppingListState> {
-  int _nextId = 0;
+  static const _initialItems = [
+    ShoppingListItem(
+      id: 0,
+      name: 'Apple',
+      quantity: 10,
+      isBought: false,
+    ),
+  ];
 
-  ShoppingListCubit() : super(ShoppingListInitial());
+  int _nextId = _initialItems.length;
+
+  ShoppingListCubit() : super(ShoppingListInitial(_initialItems));
 
   void updateItem(ShoppingListItem item, {required bool isBought}) {
     final updatedItems = state.shoppingList.items.map((i) {

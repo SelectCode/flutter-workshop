@@ -8,10 +8,14 @@ abstract class ShoppingListState extends Equatable {
 
 class ShoppingListInitial extends ShoppingListState {
   @override
-  List<Object> get props => [shoppingList];
+  final ShoppingList shoppingList;
+
+  ShoppingListInitial(
+    List<ShoppingListItem> items,
+  ) : shoppingList = ShoppingList(items: items);
 
   @override
-  ShoppingList get shoppingList => const ShoppingList();
+  List<Object> get props => [shoppingList];
 }
 
 class ShoppingListUpdated extends ShoppingListState {
