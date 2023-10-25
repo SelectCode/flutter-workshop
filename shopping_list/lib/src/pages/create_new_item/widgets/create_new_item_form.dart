@@ -45,11 +45,11 @@ class _CreateNewItemFormState extends State<CreateNewItemForm> {
               child: Column(
                 children: [
                   TextFormField(
-                    controller: _quantityController,
                     keyboardType: const TextInputType.numberWithOptions(
                       decimal: false,
                       signed: false,
                     ),
+                    controller: _quantityController,
                     decoration: const InputDecoration(
                       labelText: 'Quantity',
                     ),
